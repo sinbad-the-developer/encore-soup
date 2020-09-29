@@ -6,7 +6,7 @@ import { uiSelector } from 'state/ui';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
-
+import 'antd/dist/antd.css';
 import 'assets/styles/global.css';
 import GlobalStyles from 'assets/styles/globalStyles';
 import * as Theme from 'assets/styles/theme';
