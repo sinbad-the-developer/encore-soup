@@ -8,7 +8,7 @@ const IndexPage: React.FC = () => {
     <Layout>
       <SEO title="Home" />
       <div className="text-center">
-        <h1 className="text-2xl font-semibold">Encore soup</h1>
+        <h1 className="text-2xl font-semibold">Encore soup test</h1>
         <p className="mt-5">
           This is a starter for <span className="font-semibold">Gatsby</span> websites using{' '}
           <span className="font-semibold">Redux-Toolkit</span>, <span className="font-semibold">Typescript</span>,{' '}
