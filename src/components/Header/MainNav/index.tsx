@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import Icon from 'utils/Icon';
 
-import { MainNavWrapper, Nav, NavItem, OpenNavButton, CloseNavButton } from './styles';
+import { CloseNavButton, MainNavWrapper, Nav, NavItem, OpenNavButton } from './styles';
 
 interface NavItem {
   title: string;

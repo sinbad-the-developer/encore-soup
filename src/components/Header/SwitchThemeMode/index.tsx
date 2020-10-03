@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { uiSelector, toggleThemeMode } from 'state/ui';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleThemeMode, uiSelector } from 'store/ui';
 
 import Icon from 'utils/Icon';
 

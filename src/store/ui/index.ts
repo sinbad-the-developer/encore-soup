@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import store from 'state/store';
-import { RootState, Thunk, Dispatch } from 'state/store';
+import store, { Dispatch, RootState, Thunk } from 'store/store';
 
 export enum ThemeMode {
   LIGHT = 'light',

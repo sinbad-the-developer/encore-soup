@@ -1,4 +1,4 @@
-import { ProgrammingLanguage } from "@encsoup/model";
+import { ProgrammingLanguage } from 'models';
 
 export const PROJECT_LIST = [
   {
