@@ -17,7 +17,6 @@ export enum ProgrammingLanguage {
   HAXE = <any>'HAXE',
   JAVA = <any>'JAVA',
   JAVASCRIPT = <any>'JAVASCRIPT',
-  JS = <any>'JS',
   KOTLIN = <any>'KOTLIN',
   LUA = <any>'LUA',
   OCAML = <any>'OCAML',
