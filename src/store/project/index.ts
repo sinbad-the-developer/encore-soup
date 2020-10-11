@@ -3,7 +3,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Dispatch, RootState, Thunk } from '../store';
 import { ProjectService } from '../../services/project';
 import { Observable, of } from 'rxjs';
-import store from 'store/store';
 
 interface ProjectState {
   projects: Observable<Project[]>;
@@ -20,7 +19,6 @@ const projectSlice = createSlice({
   reducers: {
     list: (state, action: PayloadAction<Observable<Project[]>>) => {
       const { payload } = action;
-      console.log('action in reducer', action);
       state.projects = payload;
     }
   }
@@ -37,8 +35,5 @@ const { list } = projectSlice.actions;
 
 //Thunks
 export const listProjects = (): Thunk => (dispatch: Dispatch) => {
-  const { projects } = store.getState().projects;
-  console.log('from store', projects)
-  const updatedProjects = ProjectService.getProjects();
-  dispatch(list(updatedProjects));
+  dispatch(list(ProjectService.getProjects()));
 };

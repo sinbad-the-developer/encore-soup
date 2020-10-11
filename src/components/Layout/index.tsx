@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { uiSelector } from 'store/ui';
 
 import Header from 'components/Header';
@@ -11,7 +11,6 @@ import 'assets/styles/global.css';
 import GlobalStyles from 'assets/styles/globalStyles';
 import * as Theme from 'assets/styles/theme';
 import { LayoutWrapper, MainWrapper } from './styles';
-import { listProjects, projectSelector } from '../../store/project';
 
 interface Props {
   children: React.ReactNode;
@@ -34,15 +33,6 @@ const Layout: React.FC<Props> = ({ children }) => {
   `);
 
   const { themeMode } = useSelector(uiSelector);
-
-  const dispatch = useDispatch();
-  const { projects } = useSelector(projectSelector);
-
-  useEffect(() => {
-    dispatch(listProjects());
-  }, [dispatch]);
-
-  projects.subscribe((v) => console.log('win', v));
 
   return (
     <ThemeProvider theme={Theme[themeMode]}>

@@ -33,6 +33,14 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-tailwindcss`,
     {
+      resolve: `gatsby-plugin-less`,
+      options: {
+        lessOptions: {
+          javascriptEnabled: true,
+        }
+      }
+    },
+    {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         tailwind: true,

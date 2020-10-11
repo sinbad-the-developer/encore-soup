@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Layout from 'components/Layout';
 import SEO from 'components/SEO';
+import { useDispatch, useSelector } from 'react-redux';
+import { listProjects, projectSelector } from '../store/project';
+import { Card } from 'antd';
+import { map } from 'rxjs/operators';
+import { Meta } from 'antd/lib/list/Item';
+import Async from 'components/Async';
 
 const IndexPage: React.FC = () => {
+  const dispatch = useDispatch();
+  const { projects } = useSelector(projectSelector);
+  useEffect(() => {
+    dispatch(listProjects());
+  }, [dispatch]);
+
+  const projectCardList = projects.pipe(
+    map((projects) =>
+      projects.map((project, index) => (
+        <Card key={index}>
+          <Meta title={project.name} description={project.description} />
+        </Card>
+      ))
+    )
+  );
+
   return (
     <Layout>
       <SEO title="Home" />
-      <div className="text-center">
-        <h1 className="text-2xl font-semibold">Encore soup</h1>
-        <p className="mt-5">
-          This is a starter for <span className="font-semibold">Gatsby</span> websites using{' '}
-          <span className="font-semibold">Redux-Toolkit</span>, <span className="font-semibold">Typescript</span>,{' '}
-          <span className="font-semibold">Styled Components</span>, <span className="font-semibold">Talwind CSS</span> &{' '}
-          <span className="font-semibold">React Font Awesome</span>.
-        </p>
-      </div>
+      <Async>{projectCardList}</Async>
     </Layout>
   );
 };

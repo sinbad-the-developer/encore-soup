@@ -1,4 +1,4 @@
-import { Action, combineReducers, configureStore } from '@reduxjs/toolkit';
+import { Action, combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 
 import uiReducer from 'store/ui';
@@ -10,7 +10,8 @@ const rootReducer = combineReducers({
 });
 
 const store = configureStore({
-  reducer: rootReducer
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware({ serializableCheck: false })
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
